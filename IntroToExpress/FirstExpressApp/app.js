@@ -13,7 +13,14 @@ app.get("/bye", function(req, res){
 // "/dog" => "MEOW!
 app.get("/dog", function(req, res){
 	res.send("MEOW!");
+});
+
+app.get("*", function(req, res){
+	res.send("ALL OTHER ROUTES")
 })
+
+
+
 
 // Tell Express to listen for requests (start server)
 app.listen(3000, function(){
