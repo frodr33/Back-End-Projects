@@ -1,0 +1,5 @@
+Dependencies:
+	-NodeJS
+	-Express
+	-EJS
+	-Body-parser
