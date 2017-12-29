@@ -1,7 +1,10 @@
 var express = require("express");
 var app = express();
 
-
+// Tell express to look for files
+// in public directory automatically
+// (For all dir that are not "views")
+app.use(express.static("public"));
 
 // Root Route
 app.get("/", function(req, res){
