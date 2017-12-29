@@ -1,0 +1,6 @@
+Dependencies:
+	-NodeJS
+	-Express
+	-EJS
+	-Request
+	-OMDB API

@@ -3,7 +3,6 @@ request('https://query.yahooapis.com/v1/public/yql?q=select%20astronomy.sunset%2
  function (error, response, body) {
  	console.log('error:', error); // Print the error if one occurred
  	console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
- 	//console.log('body:', body); // Print the HTML for the Google homepage.
  	var parsedData = JSON.parse(body);
  	console.log(parsedData["query"]["results"]
  		["channel"]["astronomy"]["sunset"]);
