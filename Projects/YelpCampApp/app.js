@@ -15,6 +15,7 @@ app.set("view engine", "ejs");
 		{name: "Granite Hill", image: "http://www.cityofwashburn.org/uploads/7/0/4/7/70473445/8666847.jpg?464" },
 		{name: "Bryson River", image: "https://www.greatsmokies.com/images/Tents-creek-1240.jpg"}
 	];
+	
 /*
 Adding Paths for Application
 using Express Framework
@@ -50,8 +51,6 @@ app.post("/campgrounds", function(req, res){
 
 	// redirect back to Campgrounds page
 	res.redirect("/campgrounds");
-
-
 });
 
 
