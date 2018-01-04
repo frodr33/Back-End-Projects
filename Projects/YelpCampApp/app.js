@@ -1,13 +1,10 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
+var express = require("express"),
+	app = express(),
+	bodyParser = require("body-parser"),
+	mongoose = requrie("mongoose");
 
-// Body-Parser set up
-// Body parser allows express to
-// create a req.body object
+mongoose.connect("mongodb://localhost/yelp_camp");
 app.use(bodyParser.urlencoded({extended: true}));
-
-// Declare views folder as ejs
 app.set("view engine", "ejs");
 
 	var campgrounds = [
@@ -16,6 +13,34 @@ app.set("view engine", "ejs");
 		{name: "Bryson River", image: "https://www.greatsmokies.com/images/Tents-creek-1240.jpg"}
 	];
 	
+/*
+Set up Schema
+*/
+var campgroundSchema = new mongoose.Schema({
+	name: String,
+	image: String
+});
+
+var Campground = mongoose.model("Campground", campgroundSchema);
+
+/*
+Databases
+*/
+
+Campground.create({
+	name: "Salmond Creek", 
+	image: "http://www.poconosbest.com/images/campground.jpg"
+}, function(err, campground){
+	if(err){
+		console.log(err);
+	} else {
+		console.log("Newly CG");
+		console.log(campground);
+	}
+});
+
+
+
 /*
 Adding Paths for Application
 using Express Framework

@@ -25,7 +25,7 @@ app.get("/", function(req, res){
 
 // Campgrounds path
 app.get("/photos", function(req, res){
-	res.render("campgrounds", {campgrounds: campgrounds});
+	//res.render("campgrounds", {campgrounds: campgrounds});
 });
 
 // /new shows form that will send data

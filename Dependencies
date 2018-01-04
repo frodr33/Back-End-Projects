@@ -1,0 +1,19 @@
+Depencies and Explanations
+
+Express:
+	-Framework for JS Backend
+	-Allows HTTP Post and Get requests
+
+EJS:
+	-Allows you to create an HTML file mixed with JS
+	-Allows for dynamic websites
+
+body-parser: 
+	-Creates a body from get request data, can be accessed
+	through req.body
+
+request:
+	-Used for making requests to URLs
+
+mongoose:
+	-Used for managing the MongoDB database
