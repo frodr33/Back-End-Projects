@@ -1,0 +1,49 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<header class="jumbotron">
+		<div class= "container">
+			<h1>Welcome to YelpCamp!</h1>
+			<p>View hand-picked campground from
+			all over the world!</p>
+			<p>
+				<a class= "btn btn-primary btn-lg" href="/campgrounds/new">Add new Campground!</a>
+			</p>
+		</div>
+	</header>
+
+	<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+		<% campgrounds.forEach(function(camp){ %>
+			<div class="col-md-3 col-sm-6">
+				<div class= "thumbnail">
+					<img src= "<%= camp.image %>">	
+					<div class= "caption">
+						<h4><%= camp.name %></h4>
+					</div>
+					<p>
+						<a href= "/campgrounds/<%= camp._id %>" class= "btn btn-primary">More Info</a>
+					</p>					
+				</div>
+			</div>
+
+		<% }); %>
+	</div>
+
+	<% include ../partials/footer %>
+</div>
+
+<!-- NOTE: camp.image and camp.name get transerred
+to the ejs file as TEXT not as the strings they look
+like in the EJS file -->
+
+<!-- Bootstrap ("" means class)
+		-"container"
+		-"jumbotron"
+		-"row" 
+		-"col-md-3" means on medium screen, each takes up 3/12 of the width of screen
+		-"col-sm-6" means on small screens, each takes up 1/2 of the width of screen
+		-"thumbnail" organizes pictures on screen well
+		-"caption"
+		-style= "display:flex; flex-wrap: wrap;" allows the grid we get from the row class to be felxible and not care about the sizes of the images inside of them!
+		-text-center
+-->
