@@ -103,7 +103,7 @@ app.get("/campgrounds/:id", function(req, res){
 // 	   COMMENTS ROUTES
 // =======================
 
-app.get("/campgrounds/:id/comments/new", function(req, res){
+app.get("/campgrounds/:id/comments/new", isLoggedIn, function(req, res){
 	// Find campground by ID
 	Campground.findById(req.params.id, function(err, camp){
 		if (err){
@@ -157,6 +157,30 @@ app.post("/register", function(req, res){
 		});
 	});
 });
+
+app.get("/login", function(req, res){
+	res.render("login");
+});
+
+app.post("/login", passport.authenticate("local", 
+{
+	successRedirect: "/campgrounds",
+	failureRedirect: "/login"
+}), function(req, res){
+});
+	
+app.get("/logout", function(req, res){
+	req.logout();
+	res.redirect("/campgrounds");
+});
+
+function isLoggedIn(req, res, next){
+	if (req.isAuthenticated()){
+		return next();
+	}
+	res.redirect("/login");
+}
+
 // Start Server
 app.listen(3000, function(){
 	console.log('Connected to YelpCamp Server');
